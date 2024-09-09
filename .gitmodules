@@ -1,0 +1,6 @@
+[submodule "no-js-hugo-theme"]
+	path = no-js-hugo-theme
+	url = https://github.com/stevenengler/no-js-hugo-theme.git
+[submodule "themes/no-js-hugo-theme"]
+	path = themes/no-js-hugo-theme
+	url = https://github.com/stevenengler/no-js-hugo-theme.git

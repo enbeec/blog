@@ -1,8 +1,26 @@
 ---
-title: First Post
-date: 2021-05-21 16:53:00
-lastmod: 2021-05-22 13:12:00
+title: Hello World
+date: 2024-09-09
+lastmod: 2024-09-09
 draft: false
 ---
 
-Nunc ultrices sed nisi sed interdum. Sed sagittis viverra nunc, et eleifend metus fringilla sed. Vestibulum pharetra erat eros, sit amet bibendum risus aliquam at. Quisque at semper leo, nec placerat velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In pulvinar auctor interdum. In sed urna quis nisi consequat accumsan vitae eget est. Nullam rhoncus, odio in aliquam dignissim, orci urna venenatis nibh, in aliquet massa arcu nec enim. Suspendisse aliquam interdum mauris, quis convallis tellus varius sit amet. Maecenas convallis id lorem at euismod. Donec felis velit, ullamcorper sed felis eu, aliquet vestibulum elit. Integer facilisis non elit ut congue. Nullam dignissim urna vitae blandit varius. Morbi eu mattis erat. Morbi sit amet nibh in purus sodales molestie tincidunt eget augue.
+Recently, I started a project using DigitalOcean and discovered the App
+Platform's static site feature. I think I had heard about it before I discovered
+it in their documentation but it's exactly what I needed -- GitHub pages (for my
+traffic needs which fit into the free tier) with any public Git provider. I can
+deploy a static site automatically without writing and maintaining a CI/CD
+pipeline (something I do elsewhere and as little as possible when not
+necessary).
+
+DigitalOcean's Terraform support is robust and I've got a bit of fragile
+configuration (DNS records for email, namely) that I'd like to be less scared of
+touching. I was a self-taught Ansible user about 6 years ago and for my minimal
+needs (well within Hashicorp's free tier limits) this really does feel a bit
+like free magic.
+
+As for the actual blog it's a much smaller template that makes JavaScript
+optional. I really don't need more than that and am already feeling a little
+lighter knowing I can just write Markdown and publish HTML without `npm`.
+
+Can't wait to tell y'all about what I'm building next!
