@@ -1,5 +1,5 @@
 ---
-title: Terraforming: Hugo on DOAP
+title: "Terraforming: Hugo on DOAP"
 date: 2024-09-10
 lastmod: 2024-09-10
 draft: false
