@@ -28,5 +28,6 @@ jobs:
           BUILD_URL: ${{ vars.BUILD_URL }}
         name: Rebuild on App Platform
         run: |
+          echo "$BUILD_URL"
           curl -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" "$BUILD_URL" -XPOST -d '{"force_build": true}'
         
