@@ -34,3 +34,9 @@ just need to copy and paste the ID or the whole command.
 
 If there was an endpoint I could CNAME instead of the ID being in a path
 parameter I could just create a domain entry... I should see if that's possible.
+
+## Update: you *can* do that, kinda
+
+You could create a function with a known FQDN that calls the endpoint with the
+proper ID. Not necessary for this project but not a terrible solution as long as
+it executes quickly (which it should -- the request does not block on the build completing).
