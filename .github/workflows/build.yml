@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Rebuild on App Platform
-        run: curl -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" "$BUILD_URL" -XPOST -d '{"force_build": true}'
+        run: |
+          curl -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" "$BUILD_URL" -XPOST -d '{"force_build": true}'
         env:
           TOKEN: ${{ secrets.TOKEN }}
