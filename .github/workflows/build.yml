@@ -25,7 +25,7 @@ jobs:
 
       - env:
           TOKEN: ${{ secrets.TOKEN }}
-          BUILD_URL: ${{ vars.BUILD_URL }}
+          BUILD_URL: https://api.digitalocean.com/v2/apps/b8187743-47b8-40eb-a063-2cd718f5af43/deployments
         name: Rebuild on App Platform
         run: |
           echo "$BUILD_URL"
