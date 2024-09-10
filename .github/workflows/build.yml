@@ -31,6 +31,6 @@ jobs:
             -H "Authorization: Bearer $TOKEN" \
             "https://api.digitalocean.com/v2/apps/b8187743-47b8-40eb-a063-2cd718f5af43/deployments" \
             -XPOST \
-            -d '{"force_build": true}' | grep -i 'unable'
+            -d '{"force_build": true}' | grep -vi 'unable'
         env:
           TOKEN: ${{ secrets.TOKEN }}
