@@ -23,7 +23,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      - env:
+      - shell: bash
+        env:
           TOKEN: ${{ secrets.TOKEN }}
           BUILD_URL: https://api.digitalocean.com/v2/apps/b8187743-47b8-40eb-a063-2cd718f5af43/deployments
         name: Rebuild on App Platform
