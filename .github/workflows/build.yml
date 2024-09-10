@@ -23,14 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # TODO more robust error checking
       - name: Rebuild on App Platform
-        run: |
-          curl \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $TOKEN" \
-            "https://api.digitalocean.com/v2/apps/b8187743-47b8-40eb-a063-2cd718f5af43/deployments" \
-            -XPOST \
-            -d '{"force_build": true}' | tee | grep -vi 'unable'
+        run: curl -H "Content-Type: application/json" -H "Authorization: Bearer $TOKEN" "$BUILD_URL" -XPOST -d '{"force_build": true}'
         env:
           TOKEN: ${{ secrets.TOKEN }}
