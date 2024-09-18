@@ -26,14 +26,14 @@ jobs:
       - shell: bash
         env:
           TOKEN: ${{ secrets.TOKEN }}
-          BUILD_URL: https://api.digitalocean.com/v2/apps/b8187743-47b8-40eb-a063-2cd718f5af43/deployments
+          DEPLOYMENT_URL: ${{ secrets.DEPLOYMENT_URL }}
         name: Rebuild on App Platform
         # error if we do not get a JSON response containing the new deployment
         run: |
-          echo "$BUILD_URL"
+          echo "$DEPLOYMENT_URL"
           [ -z "$TOKEN" ] && echo "No token"
           curl \
             -H "Content-Type: application/json" \
             -H "Authorization: Bearer $TOKEN" \
-            "$BUILD_URL" -XPOST -d '{"force_build": true}' \
+            "$DEPLOYMENT_URL" -XPOST -d '{"force_build": true}' \
             | grep '{"deployment":'
