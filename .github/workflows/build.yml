@@ -26,7 +26,7 @@ jobs:
       - shell: bash
         env:
           TOKEN: ${{ secrets.TOKEN }}
-          DEPLOYMENT_URL: ${{ env.DEPLOYMENT_URL }}
+          DEPLOYMENT_URL: ${{ vars.DEPLOYMENT_URL }}
         name: Rebuild on App Platform
         # error if we do not get a JSON response containing the new deployment
         run: |
