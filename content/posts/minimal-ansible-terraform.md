@@ -65,6 +65,8 @@ It may seem like you'd want to use the `local_sensitive_file` resource for the i
 
 It's a little hacky but I get to move on and cement my knowledge of how Terraform's `declaration + state = convergence` schtick fits together. Also, please note the calls to `sensitive()`. This ensures that provisioners don't dump your secrets to the console. You can always use `ansible-vault` with `--vault-pass-file` to read what you wrote.
 
+Do note that `terraform_data.input` will be sensitive in future plans but `.output` will still dump to console. There is an [issue](https://github.com/hashicorp/terraform/issues/32789) tracking that so I'm considering it out of scope.
+
 ```hcl
 variable "host_name" {
   type        = string
@@ -103,7 +105,7 @@ resource "terraform_data" "host_vault" {
 
   # create/replace vault file
   provisioner "local-exec" {
-    command = "echo '${self.output.payload}' > ${self.output.path}"
+    command = "echo '${sensitive(self.output.payload)}' > ${self.output.path}"
   }
 
   # encrypt vault file
