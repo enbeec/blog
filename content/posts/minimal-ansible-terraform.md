@@ -63,7 +63,7 @@ Here's the code. It's very easy to copy and split into three files. It also is a
 
 It may seem like you'd want to use the `local_sensitive_file` resource for the initial file write, but think a bit about what that means. Sensitive simply means redacted in log output -- the *contents* remain in state. But since we use a provisioner to "process" the contents after visiting the base resource there will **always be a state mismatch, triggering a replacement**. The `terraform_data` resource stabilizes around the `input` which can also conveniently be referenced in a `when = destroy` execution (unlike variables, locals or resources). You then perform the initial write as a prequel side effect to the `ansible-vault` invocation.
 
-It's a little hacky but I get to move on and cement my knowledge of how Terraform's `declaration + state = convergence` schtick fits together.
+It's a little hacky but I get to move on and cement my knowledge of how Terraform's `declaration + state = convergence` schtick fits together. Also, please note the calls to `sensitive()`. This ensures that provisioners don't dump your secrets to the console. You can always use `ansible-vault` with `--vault-pass-file` to read what you wrote.
 
 ```hcl
 variable "host_name" {
@@ -90,16 +90,16 @@ locals {
 
 # When this resource updates...
 resource "terraform_data" "host_vault_contents" {
-  input = {
+  input = sensitive({
     payload = jsonencode(var.vault_contents)
     path    = "${local.host_vars_path}/vault.yaml"
-  }
+  })
 }
 
 # ...this resource will replace, running all provisioners
 resource "terraform_data" "host_vault" {
   triggers_replace = [terraform_data.host_vault_contents]
-  input = terraform_Data.host_vault_contents.output
+  input = sensitive(terraform_Data.host_vault_contents.output)
 
   # create/replace vault file
   provisioner "local-exec" {
