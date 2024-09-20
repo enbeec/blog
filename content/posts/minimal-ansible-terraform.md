@@ -6,7 +6,7 @@ draft: false
 
 # Minimal Interop from Terraform to Ansible
 
-*I have plans to publish more code and maybe eventually write larger posts (once grinding out and reading a lot of code isn't my priority) about this. While I'm focusing most of my efforts on an upcoming project I've taken this on as a side project in anticipation of needing a "set and forget" backend deployment. MVP for this capability is: compute, storage, firewall, VPN admin access, onsite+offsite backups and monitoring.*
+*I have plans to publish more code and maybe eventually write larger posts about this once grinding out and reading a lot of code isn't my full time priority. Currently I'm focusing most of my efforts on an upcoming project. I've taken brushing up on Infrastructure as Code on as a side project in anticipation of needing a "set and forget" backend deployment solution. MVP for this capability is: compute, storage, firewall, VPN admin access, onsite+offsite backups and monitoring.*
 
 I picked up Terraform to add it to my resume but kept it because it's still got plenty of upside for a solo developer. Despite the marketing focus on cloud-enabled state sharing, it's still a tool that shines when it comes to provisioning resources.
 
