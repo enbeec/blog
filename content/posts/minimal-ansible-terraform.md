@@ -88,11 +88,18 @@ locals {
   host_vars_path = "${path.root}/ansible/inventory/host_vars/${var.host_name}"
 }
 
-resource "terraform_data" "host_vault" {
+# When this resource updates...
+resource "terraform_data" "host_vault_contents" {
   input = {
     payload = jsonencode(var.vault_contents)
     path    = "${local.host_vars_path}/vault.yaml"
   }
+}
+
+# ...this resource will replace, running all provisioners
+resource "terraform_data" "host_vault" {
+  triggers_replace = [terraform_data.host_vault_contents]
+  input = terraform_Data.host_vault_contents.output
 
   # create/replace vault file
   provisioner "local-exec" {
