@@ -1,6 +1,6 @@
 baseURL = 'http://blog.valcurrie.com/'
 languageCode = 'en-us'
-title = "Val's Blog"
+title = "The Thought Pile"
 theme = "no-js-hugo-theme"
 
 [markup]
